@@ -1,0 +1,133 @@
+import java.util.*;
+public class Main
+{
+  public static void main (String[]args)
+  {
+	Scanner s = new Scanner (System.in);
+	int loop = 1;
+	while (loop == 1)
+	  {
+		System.out.
+		  println ("1 addition\n2 subtraction\n3 multiplication \n4 exit");
+		int choose = s.nextInt ();
+		if ((choose > 0) && (choose < 4))
+		  {
+			System.out.println ("ENTER THE NO OF ROWS OF MATRIX 1");
+			int a = s.nextInt ();
+			  System.out.println ("ENTER THE NO OF COLUMNS OF MATRIX 1");
+			int b = s.nextInt ();
+			int arr[][] = new int[a][b];
+			  System.out.println ("ENTER THE ELEMENTS OF MATRIX 1");
+			for (int i = 0; i < a; i++)
+			  {
+				for (int j = 0; j < b; j++)
+				  {
+					arr[i][j] = s.nextInt ();
+				  }
+			  }
+
+			System.out.println ("ENTER THE NO OF ROWS OF MATRIX 2");
+			int m = s.nextInt ();
+			System.out.println ("ENTER THE NO OF COLUMNS OF MATRIX 2");
+			int n = s.nextInt ();
+			int arr1[][] = new int[m][n];
+			System.out.println ("ENTER THE ELEMENTS OF MATRIX 2");
+			for (int i = 0; i < m; i++)
+			  {
+				for (int j = 0; j < n; j++)
+				  {
+					arr1[i][j] = s.nextInt ();
+				  }
+			  }
+			switch (choose)
+			  {
+			  case 1:
+				System.out.println ("ANSWER");
+				if ((a == m) && (b == n))
+				  {
+					for (int i = 0; i < m; i++)
+					  {
+						for (int j = 0; j < n; j++)
+						  {
+							System.out.print (arr[i][j] + arr1[i][j] + " ");
+						  }
+						System.out.println ();
+					  } System.out.println ();
+				  }
+				else
+				  {
+					System.out.println ("MATRIX ADDITION NOT POSSIBLE");
+					System.out.println ();
+				  }
+
+				break;
+			  case 2:
+				System.out.println ("ANSWER");
+				if ((a == m) && (b == n))
+				  {
+					for (int i = 0; i < m; i++)
+					  {
+						for (int j = 0; j < n; j++)
+						  {
+							System.out.print (arr[i][j] - arr1[i][j] + " ");
+						  }
+						System.out.println ();
+					  } System.out.println ();
+				  }
+				else
+				  {
+					System.out.println ("MATRIX SUBTRACTION NOT POSSIBLE");
+					System.out.println ();
+				  }
+
+				break;
+
+			  case 3:
+				System.out.println ("ANSWER");
+				int mul[][] = new int[a][n];
+				if (b == m)
+				  {
+					for (int i = 0; i < a; i++)
+					  {
+						for (int j = 0; j < n; j++)
+						  {
+							mul[i][j] = 0;
+							for (int k = 0; k < b; k++)
+							  {
+								mul[i][j] += arr[i][k] * arr1[k][j];
+							  }
+						  }
+					  }
+					for (int i = 0; i < a; i++)
+					  {
+						for (int j = 0; j < n; j++)
+						  {
+
+							System.out.print (mul[i][j] + " ");
+						  }
+						System.out.println ();
+					  }
+					System.out.println ();
+				  }
+				else
+				  {
+					System.
+					  out.println ("MATRIX MULTIPLICATION IS NOT POSSIBLE");
+					System.out.println ();
+				  }
+
+			  }
+		  }
+		else if (choose == 4)
+		  {
+			System.out.println ("bye");
+			loop = loop + 1;
+			break;
+		  }
+		else
+		  {
+			System.out.println ("Invalid choosing pls choose correct option");
+		  }
+	  }
+  }
+}
